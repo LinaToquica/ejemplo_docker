@@ -1,0 +1,45 @@
+{% extends 'base/base.html' %}
+
+{% block content%}
+
+<table class="table table-bordered">
+	<thead>
+		<tr>
+			<td>Nombre lugar</td>
+			<td>categoria</td>
+			<td>ciudad</td>
+            <td>direccion</td>
+			<td>creador</td>
+            <td>puntaje</td>
+			<td>Acciones</td>
+
+		</tr>
+	</thead>
+	<tbody>
+		{% if lugares %}
+		{% for lugar in lugares %}
+		<tr>
+			<td>{{ lugar.nombre_lugar }}</td>
+			<td>{{ lugar.categoria }}</td>
+			<td>{{ lugar.ciudad }}</td>
+			<td>{{ lugar.direccion }}</td>
+			<td>{{ lugar.created_by }}</td>
+            <td>{{ lugar.puntaje }}</td>
+
+			<td>
+				<a class="btn btn-primary" href="#">Editar</a>
+				<a class="btn btn-danger" href="#">Eliminar</a>
+			</td>
+
+		</tr>
+		{% endfor %}
+
+		{% else %}
+		<h1>No hay registros de Lugares Aun</h1>
+
+		{% endif %}
+	</tbody>
+</table>
+{% endblock %}
+
+
